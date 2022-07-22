@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author    PhuongLe
  * @modifier
- * @date      Mar 21, 2022
+ * @date      July 22, 2022
  * @version   1
  */
 public class FresherCandidate extends Candidate implements Serializable{
@@ -22,13 +22,12 @@ public class FresherCandidate extends Candidate implements Serializable{
 	}
 
 
-	public FresherCandidate(String firsName, String lastName, String birthDate, String address, String phone,
-			String email, Date graduationDate, int graduationRank, String education) {
+	public FresherCandidate(FresherCandidateBuilder builder) {
 		
-		super(firsName, lastName, birthDate, address, phone, email);
-		this.graduationDate = graduationDate;
-		this.graduationRank = graduationRank;
-		this.education = education;
+		super(builder);
+		this.graduationDate = builder.getGraduationDate();
+		this.graduationRank = builder.getGraduationRank();
+		this.education = builder.getEducation();
 	}
 
 
@@ -68,5 +67,41 @@ public class FresherCandidate extends Candidate implements Serializable{
 				+ ", education=" + education + ", firsName=" + firsName + ", lastName=" + lastName + ", birthDate="
 				+ birthDate + ", address=" + address + ", phone=" + phone + ", email=" + email + "]";
 	}
-	
+	public static class FresherCandidateBuilder extends CandidateBuilder {
+        private Date graduationDate;
+        private int graduationRank;
+        private String education;
+
+        public Date getGraduationDate() {
+            return graduationDate;
+        }
+
+        public FresherCandidateBuilder setGraduationDate(Date graduationDate) {
+            this.graduationDate = graduationDate;
+            return this;
+        }
+
+        public int getGraduationRank() {
+            return graduationRank;
+        }
+
+        public FresherCandidateBuilder setGraduationRank(int graduationRank) {
+            this.graduationRank = graduationRank;
+            return this;
+        }
+
+        public String getEducation() {
+            return education;
+        }
+
+        public FresherCandidateBuilder setEducation(String education) {
+            this.education = education;
+            return this;
+        }
+
+        @Override
+        public FresherCandidate build() {
+            return new FresherCandidate(this);
+        }
+    }
 }

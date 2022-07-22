@@ -15,7 +15,7 @@ import fa.training.utils.Constant;
  * 
  * @author    PhuongLe
  * @modifier
- * @date      Mar 21, 2022
+ * @date     July 22, 2022
  * @version   1
  */
 public class CandidateManagement {
@@ -34,14 +34,12 @@ public class CandidateManagement {
 		try {
 			writeFileThread.join();
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		readFileThread.start();
 		try {
 			readFileThread.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		displayThread.start();

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fa.training.entities.ExperienceCandidate;
+import fa.training.entities.ExperienceCandidate.ExperienceCandidateBuilder;
 import fa.training.entities.FresherCandidate;
+import fa.training.entities.FresherCandidate.FresherCandidateBuilder;
 import fa.training.utils.Constant;
 
 public class Repository {
@@ -31,70 +33,79 @@ public class Repository {
 	}
 	
 	private void setUpRepository() {
-		ExperienceCandidate experienceCandidate1 = new ExperienceCandidate();
-		experienceCandidate1.setFirsName("Phuong");
-		experienceCandidate1.setLastName("Le");
-		experienceCandidate1.setAddress("Hai Duong");
-		experienceCandidate1.setBirthDate("16/04/2000");
-		experienceCandidate1.setEmail("1801040171@s.hanu.edu.vn");
-		experienceCandidate1.setPhone("3483583043");
-		experienceCandidate1.setProfessionalSkill("Java");
-		experienceCandidate1.setExperiencedYear(1);
+		 ExperienceCandidate experienceCandidate1 = ((ExperienceCandidateBuilder) new ExperienceCandidate.ExperienceCandidateBuilder()		
+		.setFirsName("Phuong")
+		.setLastName("Le")
+		.setAddress("Hai Duong")
+		.setBirthDate("16/04/2000")
+		.setEmail("1801040171@s.hanu.edu.vn")
+		.setPhone("3483583043"))
+		.setProfessionalSkill("Java")
+		.setExperiencedYear(1)
+		.build();
 		
-		ExperienceCandidate experienceCandidate2 = new ExperienceCandidate();
-		experienceCandidate2.setFirsName("Anh");
-		experienceCandidate2.setLastName("Ngoc");
-		experienceCandidate2.setAddress("Hai Duong");
-		experienceCandidate2.setBirthDate("31/10/2000");
-		experienceCandidate2.setEmail("1801040015@s.hanu.edu.vn");
-		experienceCandidate2.setPhone("8540964506");
-		experienceCandidate2.setProfessionalSkill("Mobile");
-		experienceCandidate2.setExperiencedYear(1);
+		ExperienceCandidate experienceCandidate2 = ((ExperienceCandidateBuilder) new ExperienceCandidate.ExperienceCandidateBuilder()
+		.setFirsName("Anh")
+		.setLastName("Ngoc")
+		.setAddress("Hai Duong")
+		.setBirthDate("31/10/2000")
+		.setEmail("1801040015@s.hanu.edu.vn")
+		.setPhone("8540964506"))
+		.setProfessionalSkill("Mobile")
+		.setExperiencedYear(1)
+		.build();
 		
-		ExperienceCandidate experienceCandidate3 = new ExperienceCandidate();
-		experienceCandidate3.setFirsName("Lead");
-		experienceCandidate3.setLastName("Do");
-		experienceCandidate3.setAddress("Nam Dinh");
-		experienceCandidate3.setBirthDate("12/03/1996");
-		experienceCandidate3.setEmail("1601040000@s.hanu.edu.vn");
-		experienceCandidate3.setPhone("485647964");
-		experienceCandidate3.setProfessionalSkill("Chem gio");
-		experienceCandidate3.setExperiencedYear(26);
+		ExperienceCandidate experienceCandidate3 = ((ExperienceCandidateBuilder) new ExperienceCandidate.ExperienceCandidateBuilder()
+		.setFirsName("Lead")
+		.setLastName("Do")
+		.setAddress("Nam Dinh")
+		.setBirthDate("12/03/1996")
+		.setEmail("1601040000@s.hanu.edu.vn")
+		.setPhone("485647964"))
+		.setProfessionalSkill("Chem gio")
+		.setExperiencedYear(26)
+		.build();
 		
 		experienceCandidateListInput.add(experienceCandidate1);
 		experienceCandidateListInput.add(experienceCandidate2);
 		experienceCandidateListInput.add(experienceCandidate3);
 		
 		
-		FresherCandidate fresherCandidate1 = new FresherCandidate();
-		fresherCandidate1.setFirsName("Phuong");
-		fresherCandidate1.setLastName("Le");
-		fresherCandidate1.setAddress("Hai Duong");
-		fresherCandidate1.setBirthDate("16/04/2000");
-		fresherCandidate1.setEmail("1801040171@s.hanu.edu.vn");
-		fresherCandidate1.setPhone("493948232");
-		fresherCandidate1.setGraduationRank(1);
-		fresherCandidate1.setGraduationDate(null);
+		FresherCandidate fresherCandidate1 = ((FresherCandidateBuilder) new FresherCandidate.FresherCandidateBuilder()
+		.setFirsName("Phuong")
+		.setLastName("Le")
+		.setAddress("Hai Duong")
+		.setBirthDate("16/04/2000")
+		.setEmail("1801040171@s.hanu.edu.vn")
+		.setPhone("493948232"))
+		.setGraduationRank(1)
+		.setGraduationDate(null)
+		.setEducation("HANU")
+		.build();
 		
-		FresherCandidate fresherCandidate2 = new FresherCandidate();
-		fresherCandidate2.setFirsName("Anh");
-		fresherCandidate2.setLastName("Ngoc");
-		fresherCandidate2.setAddress("Hai Duong");
-		fresherCandidate2.setBirthDate("31/10/2000");
-		fresherCandidate2.setEmail("1801040015@s.hanu.edu.vn");
-		fresherCandidate2.setPhone("38573943");
-		fresherCandidate2.setGraduationRank(1);
-		fresherCandidate2.setGraduationDate(null);
+		FresherCandidate fresherCandidate2 = ((FresherCandidateBuilder) new FresherCandidate.FresherCandidateBuilder()
+		.setFirsName("Anh")
+		.setLastName("Ngoc")
+		.setAddress("Hai Duong")
+		.setBirthDate("31/10/2000")
+		.setEmail("1801040015@s.hanu.edu.vn")
+		.setPhone("38573943"))
+	    .setEducation("HANU")
+		.setGraduationRank(1)
+		.setGraduationDate(null)
+		.build();
 		
-		FresherCandidate fresherCandidate3 = new FresherCandidate();
-		fresherCandidate3.setFirsName("Lead");
-		fresherCandidate3.setLastName("Do");
-		fresherCandidate3.setAddress("Nam Dinh");
-		fresherCandidate3.setBirthDate("12/03/1996");
-		fresherCandidate3.setEmail("1601040000@s.hanu.edu.vn");
-		fresherCandidate3.setPhone("43948394");
-		fresherCandidate3.setGraduationRank(1);
-		fresherCandidate3.setGraduationDate(null);
+		FresherCandidate fresherCandidate3 = ((FresherCandidateBuilder) new FresherCandidate.FresherCandidateBuilder()
+		.setFirsName("Lead")
+		.setLastName("Do")
+		.setAddress("Nam Dinh")
+		.setBirthDate("12/03/1996")
+		.setEmail("1601040000@s.hanu.edu.vn")
+		.setPhone("43948394"))
+		.setEducation("HUST")
+		.setGraduationRank(1)
+		.setGraduationDate(null)
+		.build();
 		
 		fresherCandidateListInput.add(fresherCandidate1);
 		fresherCandidateListInput.add(fresherCandidate2);

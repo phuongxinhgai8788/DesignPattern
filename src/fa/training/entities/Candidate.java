@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 
  * @author    PhuongLe
  * @modifier
- * @date      Mar 21, 2022
+ * @date      July 22, 2022
  * @version   1
  */
 public class Candidate implements Serializable{
@@ -22,14 +22,14 @@ public class Candidate implements Serializable{
 		super();
 	}
 
-	public Candidate(String firsName, String lastName, String birthDate, String address, String phone, String email) {
+	public Candidate(CandidateBuilder builder) {
 		super();
-		this.firsName = firsName;
-		this.lastName = lastName;
-		this.birthDate = birthDate;
-		this.address = address;
-		this.phone = phone;
-		this.email = email;
+		this.firsName = builder.getFirsName();
+		this.lastName = builder.getLastName();
+		this.birthDate = builder.getBirthDate();
+		this.address = builder.getAddress();
+		this.phone = builder.getPhone();
+		this.email = builder.getEmail();
 	}
 
 	public String getFirsName() {
@@ -86,4 +86,73 @@ public class Candidate implements Serializable{
 				+ address + ", phone=" + phone + ", email=" + email + "]";
 	}
 	
+	public static class CandidateBuilder{
+
+		   private String firsName;
+	        private String lastName;
+	        private String birthDate;
+	        private String address;
+	        private String phone;
+	        private String email;
+
+	        public CandidateBuilder setFirsName(String firsName) {
+	            this.firsName = firsName;
+	            return this;
+	        }
+
+	        public CandidateBuilder setLastName(String lastName) {
+	            this.lastName = lastName;
+	            return this;
+	        }
+
+	        public CandidateBuilder setBirthDate(String birthDate) {
+	            this.birthDate = birthDate;
+	            return this;
+	        }
+
+	        public CandidateBuilder setAddress(String address) {
+	            this.address = address;
+	            return this;
+	        }
+
+	        public CandidateBuilder setPhone(String phone) {
+	            this.phone = phone;
+	            return this;
+	        }
+
+	        public CandidateBuilder setEmail(String email) {
+	            this.email = email;
+	            return this;
+	        }
+
+	        public String getFirsName() {
+	            return firsName;
+	        }
+
+	        public String getLastName() {
+	            return lastName;
+	        }
+
+	        public String getBirthDate() {
+	            return birthDate;
+	        }
+
+	        public String getAddress() {
+	            return address;
+	        }
+
+	        public String getPhone() {
+	            return phone;
+	        }
+
+	        public String getEmail() {
+	            return email;
+	        }
+
+	        public Candidate build() {
+	            return new Candidate(this);
+	        }
+
+		
+	}
 }
