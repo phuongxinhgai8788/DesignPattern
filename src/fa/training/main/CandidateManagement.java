@@ -1,15 +1,8 @@
 package fa.training.main;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import fa.training.entities.ExperienceCandidate;
-import fa.training.entities.FresherCandidate;
 import fa.training.threads.DisplayThread;
 import fa.training.threads.ReadFileThread;
 import fa.training.threads.WriteFileThread;
-import fa.training.utils.Constant;
 
 /*
  * 

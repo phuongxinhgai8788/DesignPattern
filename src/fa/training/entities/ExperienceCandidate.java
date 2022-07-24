@@ -9,68 +9,68 @@ package fa.training.entities;
  */
 public class ExperienceCandidate extends Candidate {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int experiencedYear;
 	private String professionalSkill;
 
-	public ExperienceCandidate() {
-		super();
-	}
+	 public static abstract class Builder<B extends Builder<B>> extends Candidate.Builder<B> {
+		    private int experiencedYear;
+			private String professionalSkill;
+	        // ...
 
-	public ExperienceCandidate(ExperienceCandidateBuilder builder) {
+	        public B experiencedYear(int experiencedYear) {
+	            this.experiencedYear = experiencedYear;
+	            return self();
+	        }
 
-		super(builder);
-		this.experiencedYear = builder.getExperiencedYear();
-		this.professionalSkill = builder.getProfessionalSkill();
-	}
+	        public B professionalSkill(String professionalSkill) {
+	            this.professionalSkill = professionalSkill;
+	            return self();
+	        }
 
-	public int getExperiencedYear() {
-		return experiencedYear;
-	}
+	        // ...
 
-	public void setExperiencedYear(int experiencedYear) {
-		this.experiencedYear = experiencedYear;
-	}
+	        public ExperienceCandidate build() {
+	            return new ExperienceCandidate(this);
+	        }
+	        
+	        protected Builder() {}
+	    }
 
-	public String getProfessionalSkill() {
-		return professionalSkill;
-	}
+	    public static Builder<?> builder() {
+	        return new ExperienceCandidateBuilder();
+	    }
 
-	public void setProfessionalSkill(String professionalSkill) {
-		this.professionalSkill = professionalSkill;
-	}
+	    public int getExperiencedYear() {
+	        return experiencedYear;
+	    }
 
+	    public String getProfessionalSkill() {
+	        return professionalSkill;
+	    }
+	    
+	    private static class ExperienceCandidateBuilder extends Builder<ExperienceCandidateBuilder> {
+	        @Override
+	        protected ExperienceCandidateBuilder self() {
+	            return this;
+	        }
+	    }
+
+	    protected ExperienceCandidate(Builder<?> builder) {
+	        super(builder);
+	        experiencedYear = builder.experiencedYear;
+	        professionalSkill = builder.professionalSkill;
+	        // ...
+	    }
 	@Override
 	public String toString() {
 		return "ExperienceCandidate [experiencedYear=" + experiencedYear + ", professionalSkill=" + professionalSkill
-				+ ", firsName=" + firsName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", address="
+				+ ", firsName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", address="
 				+ address + ", phone=" + phone + ", email=" + email + "]";
 	}
 
-	public static class ExperienceCandidateBuilder extends CandidateBuilder {
-		private int experiencedYear;
-		private String professionalSkill;
-
-		public int getExperiencedYear() {
-			return experiencedYear;
-		}
-
-		public ExperienceCandidateBuilder setExperiencedYear(int experiencedYear) {
-			this.experiencedYear = experiencedYear;
-			return this;
-		}
-
-		public String getProfessionalSkill() {
-			return professionalSkill;
-		}
-
-		public ExperienceCandidateBuilder setProfessionalSkill(String professionalSkill) {
-			this.professionalSkill = professionalSkill;
-			return this;
-		}
-
-		@Override
-		public ExperienceCandidate build() {
-			return new ExperienceCandidate(this);
-		}
-	}
+	
 }

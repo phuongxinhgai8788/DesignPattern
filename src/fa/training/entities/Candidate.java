@@ -11,148 +11,113 @@ import java.io.Serializable;
  */
 public class Candidate implements Serializable{
 
-	protected String firsName;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected String firstName;
 	protected String lastName;
 	protected String birthDate;
 	protected String address;
 	protected String phone;
 	protected String email;
 	
-	public Candidate() {
-		super();
+	public static abstract class Builder<B extends Builder<B>> {
+		private String firstName;
+		private String lastName;
+		private String birthDate;
+		private String address;
+		private String phone;
+		private String email;
+		
+		public B firstName(String firstName) {
+			this.firstName = firstName;
+			return self();
+		}
+		
+		public B lastName(String lastName) {
+			this.lastName = firstName;
+			return self();
+		}
+		
+		public B birthDate(String birthDate) {
+			this.birthDate = firstName;
+			return self();
+		}
+		
+		public B address(String address) {
+			this.address = firstName;
+			return self();
+		}
+		
+		public B phone(String phone) {
+			this.phone = firstName;
+			return self();
+		}
+		
+		public B email(String email) {
+			this.email = firstName;
+			return self();
+		}
+		protected abstract B self();
+		
+		protected Builder() {
+			
+		}
 	}
 
-	public Candidate(CandidateBuilder builder) {
-		super();
-		this.firsName = builder.getFirsName();
-		this.lastName = builder.getLastName();
-		this.birthDate = builder.getBirthDate();
-		this.address = builder.getAddress();
-		this.phone = builder.getPhone();
-		this.email = builder.getEmail();
+	public static Builder<?> builder(){
+		return new BaseBuilder();
 	}
 
-	public String getFirsName() {
-		return firsName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirsName(String firsName) {
-		this.firsName = firsName;
-	}
 
 	public String getLastName() {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 
 	public String getBirthDate() {
 		return birthDate;
-	}
-
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
 	}
 
 	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	public String getEmail() {
 		return email;
 	}
+	
+	 private static class BaseBuilder extends Builder<BaseBuilder> {
+	        @Override
+	        protected BaseBuilder self() {
+	            return this;
+	        }
+	    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	    @SuppressWarnings("WeakerAccess")
+	    protected Candidate(Builder<?> builder) {
+	        firstName = builder.firstName;
+	        lastName = builder.lastName;
+	        birthDate = builder.birthDate;
+	        address = builder.address;
+	        phone = builder.phone;
+	        email = builder.email;
+	    }
 
 	@Override
 	public String toString() {
-		return "Candidate [firsName=" + firsName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", address="
+		return "Candidate [firsName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", address="
 				+ address + ", phone=" + phone + ", email=" + email + "]";
 	}
 	
-	public static class CandidateBuilder{
-
-		   private String firsName;
-	        private String lastName;
-	        private String birthDate;
-	        private String address;
-	        private String phone;
-	        private String email;
-
-	        public CandidateBuilder setFirsName(String firsName) {
-	            this.firsName = firsName;
-	            return this;
-	        }
-
-	        public CandidateBuilder setLastName(String lastName) {
-	            this.lastName = lastName;
-	            return this;
-	        }
-
-	        public CandidateBuilder setBirthDate(String birthDate) {
-	            this.birthDate = birthDate;
-	            return this;
-	        }
-
-	        public CandidateBuilder setAddress(String address) {
-	            this.address = address;
-	            return this;
-	        }
-
-	        public CandidateBuilder setPhone(String phone) {
-	            this.phone = phone;
-	            return this;
-	        }
-
-	        public CandidateBuilder setEmail(String email) {
-	            this.email = email;
-	            return this;
-	        }
-
-	        public String getFirsName() {
-	            return firsName;
-	        }
-
-	        public String getLastName() {
-	            return lastName;
-	        }
-
-	        public String getBirthDate() {
-	            return birthDate;
-	        }
-
-	        public String getAddress() {
-	            return address;
-	        }
-
-	        public String getPhone() {
-	            return phone;
-	        }
-
-	        public String getEmail() {
-	            return email;
-	        }
-
-	        public Candidate build() {
-	            return new Candidate(this);
-	        }
-
-		
-	}
 }
